@@ -1,0 +1,51 @@
+#ifndef cpt_XXX
+#define cpt_XXX
+
+
+#include "../interface/analyzer.h"
+
+class XXX : public analyzer{
+
+
+
+    virtual void analyze(TTree* in, TTree* cut = 0) override{
+    
+//111111111-----------don't touch from here------------------------------------------------------------------------------   
+/**/        unsigned short ci = 0;
+/**/        if(cut)
+/**/            cut->SetBranchAddress("cut",&ci);
+//111111111-----------don't touch to here------------------------------------------------------------------------------   
+    
+
+
+        // define variables
+    /*
+        std::vector<float> *vpx = 0;
+        in->SetBranchAddress("vpx", &vpx);
+    */
+
+
+        for (int i = 0; i < in->GetEntries(); i++) {
+//2222222222222-----------don't touch from here------------------------------------------------------------------------------   
+/**/            in->GetEntry(i); 
+/**/            if(cut){
+/**/                cut->GetEntry(i);
+/**/                if(!ci) continue;   
+/**/            }
+//2222222222222-----------don't touch to here------------------------------------------------------------------------------   
+
+
+            /* do sth...
+            for (auto& i : *vpx)
+                ...
+            */
+        }
+
+    }
+    
+
+};
+
+#endif
+
+
