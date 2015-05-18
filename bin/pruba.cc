@@ -26,6 +26,7 @@
 //#include "../plugins/taucut.cc"
 #include "../plugins/pairselector.cc"
 #include "../plugins/pairvardrawer.cc"
+#include "../plugins/synchronizer.cc"
 
 
 
@@ -39,8 +40,8 @@ using std::vector;
 int main(int argc, const char *argv[]){
 
 
-    std::string prubka = "DYJetsToLL";
-    string folder = "/opt/CMMSW/Data/m2n/"+ prubka + "/";
+    std::string prubka = "ntuples";
+    string folder = "/opt/CMMSW/Data/";
     string file = prubka+".root";
     string branch = "m2n/ntuple"; 
 
@@ -75,10 +76,9 @@ int main(int argc, const char *argv[]){
     p3.get(inc);
     std::cout << "integral: " << inc.integral();
 //    p4.get(tt1);
-//    p5.get(tt2);
-//    p6.get(tt2);
-//    p7.get(tt2);
 
+    synchronizer a1("htt");
+    a1.get(tt);
     
 /*
     first h_;
