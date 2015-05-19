@@ -202,21 +202,67 @@ class synchronizer : public analyzer{
             float run_ = 0; in->SetBranchAddress("run", &run_);
             float lumi_ = 0; in->SetBranchAddress("lumi", &lumi_);
             float evt_ = 0;  in->SetBranchAddress("evt", &evt_);
+            bool isZtt_ = 0; in->SetBranchAddress("isZtt", &isZtt_);
+            bool isZmt_ = 0; in->SetBranchAddress("isZmt", &isZmt_);
+            bool isZet_ = 0; in->SetBranchAddress("isZet", &isZet_);
+            bool isZee_ = 0; in->SetBranchAddress("isZee", &isZee_);
+            bool isZmm_ = 0; in->SetBranchAddress("isZmm", &isZmm_);
+            bool isZem_ = 0; in->SetBranchAddress("isZem", &isZem_);
+            bool isZEE_ = 0; in->SetBranchAddress("isZEE", &isZEE_);
+            bool isZMM_ = 0; in->SetBranchAddress("isZMM", &isZMM_);
+            bool isZLL_ = 0; in->SetBranchAddress("isZLL", &isZLL_);
+            int nup_ = 0; in->SetBranchAddress("nup", &nup_);
+
+            float npv_ = 0; in->SetBranchAddress("npv", &npv_);
+            float npu_ = 0; in->SetBranchAddress("npu", &npu_);
+
             std::vector<float> *taupt_ = 0;  in->SetBranchAddress("taupt", &taupt_);
             std::vector<float> *tauphi_ = 0;  in->SetBranchAddress("tauphi", &tauphi_);
             std::vector<float> *taueta_ = 0;  in->SetBranchAddress("taueta", &taueta_);
+            std::vector<float> *taum_ = 0;  in->SetBranchAddress("taum", &taum_);
+            std::vector<float> *tauq_ = 0;  in->SetBranchAddress("tauq", &tauq_);
+            std::vector<float> *taumt_ = 0;  in->SetBranchAddress("taumt", &taumt_);
+
+            std::vector<float> *againstElectronLooseMVA5_ = 0;  in->SetBranchAddress("againstElectronLooseMVA5", &againstElectronLooseMVA5_);
+            std::vector<float> *againstElectronMediumMVA5_ = 0;  in->SetBranchAddress("againstElectronMediumMVA5", &againstElectronMediumMVA5_);
+            std::vector<float> *againstElectronTightMVA5_ = 0;  in->SetBranchAddress("againstElectronTightMVA5", &againstElectronTightMVA5_);
+            std::vector<float> *againstElectronVLooseMVA5_ = 0;  in->SetBranchAddress("againstElectronVLooseMVA5", &againstElectronVLooseMVA5_);
+            std::vector<float> *againstElectronVTightMVA5_ = 0;  in->SetBranchAddress("againstElectronVTightMVA5", &againstElectronVTightMVA5_);
+            std::vector<float> *againstMuonLoose3_ = 0;  in->SetBranchAddress("againstMuonLoose3", &againstMuonLoose3_);
+            std::vector<float> *againstMuonTight3_ = 0;  in->SetBranchAddress("againstMuonTight3", &againstMuonTight3_);
+            std::vector<float> *byCombinedIsolationDeltaBetaCorrRaw3Hits_ = 0;  in->SetBranchAddress("byCombinedIsolationDeltaBetaCorrRaw3Hits", &byCombinedIsolationDeltaBetaCorrRaw3Hits_);
+            std::vector<float> *byIsolationMVA3newDMwoLTraw_ = 0;  in->SetBranchAddress("byIsolationMVA3newDMwoLTraw", &byIsolationMVA3newDMwoLTraw_);
+            std::vector<float> *byIsolationMVA3oldDMwoLTraw_ = 0;  in->SetBranchAddress("byIsolationMVA3oldDMwoLTraw", &byIsolationMVA3oldDMwoLTraw_);
+            std::vector<float> *byIsolationMVA3newDMwLTraw_ = 0;  in->SetBranchAddress("byIsolationMVA3newDMwLTraw", &byIsolationMVA3newDMwLTraw_);
+            std::vector<float> *byIsolationMVA3oldDMwLTraw_ = 0;  in->SetBranchAddress("byIsolationMVA3oldDMwLTraw", &byIsolationMVA3oldDMwLTraw_);
+            std::vector<float> *chargedIsoPtSum_ = 0;  in->SetBranchAddress("chargedIsoPtSum", &chargedIsoPtSum_);
+            std::vector<float> *decayModeFinding_ = 0;  in->SetBranchAddress("decayModeFinding", &decayModeFinding_);
+            std::vector<float> *decayModeFindingNewDMs_ = 0;  in->SetBranchAddress("decayModeFindingNewDMs", &decayModeFindingNewDMs_);
+            std::vector<float> *neutralIsoPtSum_ = 0;  in->SetBranchAddress("neutralIsoPtSum", &neutralIsoPtSum_);
+            std::vector<float> *puCorrPtSum_ = 0;  in->SetBranchAddress("puCorrPtSum", &puCorrPtSum_);
 
             std::vector<float> *mupt_ = 0;  in->SetBranchAddress("mupt", &mupt_);
             std::vector<float> *muphi_ = 0;  in->SetBranchAddress("muphi", &muphi_);
             std::vector<float> *mueta_ = 0;  in->SetBranchAddress("mueta", &mueta_);
+            std::vector<float> *mum_ = 0;  in->SetBranchAddress("mum", &mum_);
+            std::vector<float> *muq_ = 0;  in->SetBranchAddress("muq", &muq_);
+            std::vector<float> *mud0_ = 0;  in->SetBranchAddress("mud0", &mud0_);
+            std::vector<float> *mudz_ = 0;  in->SetBranchAddress("mudz", &mudz_);
+            std::vector<float> *mumt_ = 0;  in->SetBranchAddress("mumt", &mumt_);
+            std::vector<float> *muiso_ = 0;  in->SetBranchAddress("muiso", &muiso_);
+            std::vector<float> *muisLooseMuon_ = 0;  in->SetBranchAddress("muisLooseMuon", &muisLooseMuon_);
+            std::vector<float> *muisTightMuon_ = 0;  in->SetBranchAddress("muisTightMuon", &muisTightMuon_);
+            std::vector<float> *muisHighPtMuon_ = 0;  in->SetBranchAddress("muisHighPtMuon", &muisHighPtMuon_);
+            std::vector<float> *muisMediumMuon_ = 0;  in->SetBranchAddress("muisMediumMuon", &muisMediumMuon_);
+            std::vector<float> *muisTightnovtxMuon_ = 0;  in->SetBranchAddress("muisTightnovtxMuon", &muisTightnovtxMuon_);
 
+            std::vector<float> *pth_ = 0;  in->SetBranchAddress("pth", &pth_);
+            std::vector<float> *m_sv_ = 0;  in->SetBranchAddress("m_sv", &m_sv_);
 
- 
-
-        /*
-        std::vector<float> *vpx = 0;
-        in->SetBranchAddress("vpx", &vpx);
-        */
+            std::vector<float> *mvacov00_ = 0;  in->SetBranchAddress("mvacov00", &mvacov00_);
+            std::vector<float> *mvacov01_ = 0;  in->SetBranchAddress("mvacov01", &mvacov01_);
+            std::vector<float> *mvacov10_ = 0;  in->SetBranchAddress("mvacov10", &mvacov10_);
+            std::vector<float> *mvacov11_ = 0;  in->SetBranchAddress("mvacov11", &mvacov11_);
 
 
         for (int i = 0; i < in->GetEntries(); i++) {
@@ -231,6 +277,19 @@ class synchronizer : public analyzer{
             run = run_;
             lumi = lumi_;
             evt = evt_;
+            isZtt=isZtt_;
+            isZmt=isZmt_;
+            isZet=isZet_;
+            isZee=isZee_;
+            isZmm=isZmm_;
+            isZem=isZem_;
+            isZEE=isZEE_;
+            isZMM= isZMM_;
+            isZLL=isZLL_;
+
+            NUP= nup_; 
+            npv = npv_;
+            npu = npu_;
             
             if(cut){
                 unsigned short one = 1;
@@ -239,9 +298,50 @@ class synchronizer : public analyzer{
                         pt_1 = (*taupt_)[i];
                         phi_1 = (*tauphi_)[i];
                         eta_1 = (*taueta_)[i];
+                        m_1 = (*taum_)[i];
+                        q_1 = (*tauq_)[i];
+                        mt_1 = (*taumt_)[i];
+                        againstElectronLooseMVA5_1 = (*tauagainstElectronLooseMVA5_)[i];
+                        againstElectronMediumMVA5_1 = (*tauagainstElectronMediumMVA5_)[i];
+                        againstElectronTightMVA5_1 = (*tauagainstElectronTightMVA5_)[i];
+                        againstElectronVLooseMVA5_1 = (*tauagainstElectronVLooseMVA5_)[i];
+                        againstElectronVTightMVA5_1 = (*tauagainstElectronVTightMVA5_)[i];
+                        againstMuonLoose3_1 = (*tauagainstMuonLoose3_)[i];
+                        againstMuonTight3_1 = (*tauagainstMuonTight3_)[i];
+                        byCombinedIsolationDeltaBetaCorrRaw3Hits_1 = (*taubyCombinedIsolationDeltaBetaCorrRaw3Hits_)[i];
+                        byIsolationMVA3newDMwoLTraw_1 = (*taubyIsolationMVA3newDMwoLTraw_)[i];
+                        byIsolationMVA3oldDMwoLTraw_1 = (*taubyIsolationMVA3oldDMwoLTraw_)[i];
+                        byIsolationMVA3newDMwLTraw_1 = (*taubyIsolationMVA3newDMwLTraw_)[i];
+                        byIsolationMVA3oldDMwLTraw_1 = (*taubyIsolationMVA3oldDMwLTraw_)[i];
+                        chargedIsoPtSum_1 = (*tauchargedIsoPtSum_)[i];
+                        decayModeFinding_1 = (*taudecayModeFinding_)[i];
+                        decayModeFindingNewDMs_1 = (*taudecayModeFindingNewDMs_)[i];
+                        neutralIsoPtSum_1 = (*tauneutralIsoPtSum_)[i];
+                        puCorrPtSum_1 = (*taupuCorrPtSum_)[i];
+
                         pt_2 = (*mupt_)[i];
                         phi_2 = (*muphi_)[i];
                         eta_2 = (*mueta_)[i];
+                        m_2 = (*mum_)[i];
+                        q_2 = (*muq_)[i];
+                        d0_2 = (*mud0_)[i];
+                        dZ_2 = (*mudz_)[i];
+                        mt_2 = (*mumt_)[i];
+                        iso_2 = (*muiso_)[i];
+                        id_m_loose_2 = (*isLooseMuon)[i];
+                        id_m_medium_2 = (*isMediumMuon_)[i];
+                        id_m_tight_2 = (*isTightMuon_)[i];
+                        id_m_tightnovtx_2 = (*isTightnovtxMuon_)[i];
+                        id_m_highpt_2 = (*isHighPtMuon_)[i];
+
+                        pth = (*pth_)[i];
+                        m_sv = (*m_sv_)[i];
+
+                        mvacov00 = (*mvacov00_)[i];
+                        mvacov01 = (*mvacov01_)[i];
+                        mvacov10 = (*mvacov10_)[i];
+                        mvacov11 = (*mvacov11_)[i];
+
                         break;
                     }
                     one = one << 1;
@@ -251,9 +351,18 @@ class synchronizer : public analyzer{
                         pt_1 = (*taupt_)[0];
                         phi_1 = (*tauphi_)[0];
                         eta_1 = (*taueta_)[0];
+                        m_1 = (*taum_)[0];
+                        q_1 = (*tauq_)[0];
+                        mt_1 = (*taumt_)[0];
+
                         pt_2 = (*mupt_)[0];
                         phi_2 = (*muphi_)[0];
                         eta_2 = (*mueta_)[0];
+                        m_2 = (*mum_)[0];
+                        q_2 = (*muq_)[0];
+                        d0_2 = (*mud0_)[0];
+                        dZ_2 = (*mudz_)[0];
+                        mt_2 = (*mumt_)[0];
             }
             
             synchtree->Fill();

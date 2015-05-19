@@ -40,8 +40,8 @@ using std::vector;
 int main(int argc, const char *argv[]){
 
 
-    std::string prubka = "ntuples";
-    string folder = "/opt/CMMSW/Data/";
+    std::string prubka = "result";
+    string folder = "/opt/CMMSW/Data/BLUJ_enriched/";
     string file = prubka+".root";
     string branch = "m2n/ntuple"; 
 
@@ -78,7 +78,9 @@ int main(int argc, const char *argv[]){
 //    p4.get(tt1);
 
     synchronizer a1("htt");
+    synchronizer a2("httinc");
     a1.get(tt);
+    a2.get(inc);
     
 /*
     first h_;
