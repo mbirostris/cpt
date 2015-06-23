@@ -40,8 +40,9 @@ using std::vector;
 int main(int argc, const char *argv[]){
 
 
-    std::string prubka = "result";
-    string folder = "/opt/CMMSW/Data/BLUJ_enriched/";
+//  std::string prubka = "result";
+    std::string prubka = "ntuples";
+    string folder = "/opt/CMMSW/Data/";
     string file = prubka+".root";
     string branch = "m2n/ntuple"; 
 
@@ -58,9 +59,9 @@ int main(int argc, const char *argv[]){
     pairselector muptcut("mupt", 50, inf);
     pairselector svfitcut("svfit", 50, 150);
 
-    chain inc = tauptcut.get(tt);
-    inc = muptcut.get(inc);
-    inc = svfitcut.get(inc);
+//    chain inc = tauptcut.get(tt);
+//    inc = muptcut.get(inc);
+//    inc = svfitcut.get(inc);
     pairvardrawer p1("mupt", prubka + "mupt", TH1F("mupt", "mupt", 50, 0 ,200) ); 
     pairvardrawer p2("taupt", prubka + "taupt", TH1F("mupt", "mupt", 50, 0 ,200) ); 
     pairvardrawer p3("svfit", prubka + "svfitpt", TH1F("mupt", "mupt", 50, 0 ,200) ); 
@@ -71,16 +72,16 @@ int main(int argc, const char *argv[]){
 //    pairvariableplotter p5("metpt", prubka);
 //    pairvariableplotter p6("metphi", prubka);
 //    pairvariableplotter p7("metsumEt", prubka);
-    p1.get(inc); 
-    p2.get(inc);
-    p3.get(inc);
-    std::cout << "integral: " << inc.integral();
+//    p1.get(inc); 
+//    p2.get(inc);
+//   p3.get(inc);
+//    std::cout << "integral: " << inc.integral();
 //    p4.get(tt1);
-
+ //       std::cout << "dd";
     synchronizer a1("htt");
-    synchronizer a2("httinc");
+//    synchronizer a2("httinc");
     a1.get(tt);
-    a2.get(inc);
+//    a2.get(inc);
     
 /*
     first h_;

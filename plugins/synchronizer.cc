@@ -140,27 +140,27 @@ class synchronizer : public analyzer{
             float mvacov11 = 0; synchtree->Branch("mvacov11", &mvacov11);//same
 
             float mjj = 0; synchtree->Branch("mjj", &mjj); //same
-            float jdeta = 0; synchtree->Branch("jdeta", &jdeta); //same
-            float njetingap = 0; synchtree->Branch("njetingap", &njetingap);
-            float jdphi = 0; synchtree->Branch("jdphi", &jdphi);
-            float dijetpt = 0; synchtree->Branch("dijetpt", &dijetpt);
-            float dijetphi = 0; synchtree->Branch("dijetphi", &dijetphi);
-            float hdijetphi = 0; synchtree->Branch("hdijetphi", &hdijetphi);
-            float visjeteta = 0; synchtree->Branch("visjeteta", &visjeteta);
-            float ptvis = 0; synchtree->Branch("ptvis", &ptvis);
+            float jdeta = 0; synchtree->Branch("jdeta", &jdeta); //deta
+            float njetingap = 0; synchtree->Branch("njetingap", &njetingap);//same
+            float jdphi = 0; synchtree->Branch("jdphi", &jdphi);//dphi
+            float dijetpt = 0; synchtree->Branch("dijetpt", &dijetpt); //ptjj
+            float dijetphi = 0; synchtree->Branch("dijetphi", &dijetphi); //phijj
+            float hdijetphi = 0; synchtree->Branch("hdijetphi", &hdijetphi);//same
+            float visjeteta = 0; synchtree->Branch("visjeteta", &visjeteta);//seme
+            float ptvis = 0; synchtree->Branch("ptvis", &ptvis);//same
 
             float nbtag = 0; synchtree->Branch("nbtag", &nbtag);
             float njets = 0; synchtree->Branch("njets", &njets);
             float njetspt20 = 0; synchtree->Branch("njetspt20", &njetspt20);
 
-            float jpt_1 = 0; synchtree->Branch("jpt_1", &jpt_1);
-            float jeta_1 = 0; synchtree->Branch("jeta_1", &jeta_1);
-            float jphi_1 = 0; synchtree->Branch("jphi_1", &jphi_1);
-            float jrawf_1 = 0; synchtree->Branch("jrawf_1", &jrawf_1);
-            float jmva_1 = 0; synchtree->Branch("jmva_1", &jmva_1);
-            float jpfid_1 = 0; synchtree->Branch("jpfid_1", &jpfid_1);
-            float jpuid_1 = 0; synchtree->Branch("jpuid_1", &jpuid_1);
-            float jcsv_1 = 0; synchtree->Branch("jcsv_1", &jcsv_1);
+            float jpt_1 = 0; synchtree->Branch("jpt_1", &jpt_1); //jetpt
+            float jeta_1 = 0; synchtree->Branch("jeta_1", &jeta_1); //jeteta
+            float jphi_1 = 0; synchtree->Branch("jphi_1", &jphi_1); //jetphi
+            float jrawf_1 = 0; synchtree->Branch("jrawf_1", &jrawf_1);//jecfactor
+            float jmva_1 = 0; synchtree->Branch("jmva_1", &jmva_1);//pujetid
+            float jpfid_1 = 0; synchtree->Branch("jpfid_1", &jpfid_1);//jetlooseID
+            float jpuid_1 = 0; synchtree->Branch("jpuid_1", &jpuid_1);//pujetetaid
+            float jcsv_1 = 0; synchtree->Branch("jcsv_1", &jcsv_1); //jetcsvtag
 
             float jpt_2 = 0; synchtree->Branch("jpt_2", &jpt_2);
             float jeta_2 = 0; synchtree->Branch("jeta_2", &jeta_2);
@@ -199,6 +199,7 @@ class synchronizer : public analyzer{
 
             // define variables
             unsigned short paircount = 0;  in->SetBranchAddress("paircount", &paircount);
+            
             float run_ = 0; in->SetBranchAddress("run", &run_);
             float lumi_ = 0; in->SetBranchAddress("lumi", &lumi_);
             float evt_ = 0;  in->SetBranchAddress("evt", &evt_);
@@ -256,14 +257,27 @@ class synchronizer : public analyzer{
             std::vector<float> *isMediumMuon_ = 0;  in->SetBranchAddress("isMediumMuon", &isMediumMuon_);
             std::vector<float> *isTightnovtxMuon_ = 0;  in->SetBranchAddress("isTightnovtxMuon", &isTightnovtxMuon_);
 
-            std::vector<float> *pth_ = 0;  in->SetBranchAddress("pth", &pth_);
-            std::vector<float> *m_sv_ = 0;  in->SetBranchAddress("m_sv", &m_sv_);
+//            std::vector<float> *pth_ = 0;  in->SetBranchAddress("pth", &pth_);
+            std::vector<float> *svfit_ = 0;  in->SetBranchAddress("svfit", &svfit_);
 
             std::vector<float> *mvacov00_ = 0;  in->SetBranchAddress("mvacov00", &mvacov00_);
             std::vector<float> *mvacov01_ = 0;  in->SetBranchAddress("mvacov01", &mvacov01_);
             std::vector<float> *mvacov10_ = 0;  in->SetBranchAddress("mvacov10", &mvacov10_);
             std::vector<float> *mvacov11_ = 0;  in->SetBranchAddress("mvacov11", &mvacov11_);
+ 
+            float mjj_ = 0;  in->SetBranchAddress("mjj", &mjj_);
+            float jdeta_ = 0;  in->SetBranchAddress("deta", &jdeta_);
 
+            std::vector<float> *jetpt_= 0;  in->SetBranchAddress("jetpt", &jetpt_);
+            std::vector<float> *jeteta_= 0;  in->SetBranchAddress("jeteta", &jeteta_);
+            std::vector<float> *jetphi_= 0;  in->SetBranchAddress("jetphi", &jetphi_);
+            std::vector<float> *bjet_= 0;  in->SetBranchAddress("bjet", &bjet_);
+            std::vector<float> *jecfactor_= 0;  in->SetBranchAddress("jecfactor", &jecfactor_);
+            std::vector<float> *pujetid_= 0;  in->SetBranchAddress("pujetid", &pujetid_);
+            std::vector<float> *jetlooseID_= 0;  in->SetBranchAddress("jetlooseID", &jetlooseID_);
+            std::vector<float> *pujetetaid_= 0;  in->SetBranchAddress("pujetetaid", &pujetetaid_);
+            std::vector<float> *jetcsvtag_= 0;  in->SetBranchAddress("jetcsvtag", &jetcsvtag_);
+     
 
         for (int i = 0; i < in->GetEntries(); i++) {
             //2222222222222-----------don't touch from here------------------------------------------------------------------------------   
@@ -290,7 +304,58 @@ class synchronizer : public analyzer{
             NUP= nup_; 
             npv = npv_;
             npu = npu_;
-            
+
+            mjj = mjj_;
+            jdeta = jdeta_;
+ 
+            jpt_1 = (*jetpt_)[0];      
+            jpt_2 = (*jetpt_)[1];
+            jeta_1 = (*jeteta_)[0];      
+            jeta_2 = (*jeteta_)[1];
+            jphi_1 = (*jetphi_)[0];      
+            jphi_2 = (*jetphi_)[1];
+            jrawf_1 = (*jecfactor_)[0];      
+            jrawf_2 = (*jecfactor_)[1];
+            jmva_1 = (*pujetid_)[0];
+            jmva_2 = (*pujetid_)[1];
+            jpfid_1 = (*jetlooseID_)[0];
+            jpfid_2 = (*jetlooseID_)[1];
+            jpuid_1 = (*pujetetaid_)[0];
+            jpuid_2 = (*pujetetaid_)[1];
+            jcsv_1 = (*jetcsvtag_)[0];
+            jcsv_2 = (*jetcsvtag_)[1];
+
+            nbtag = 0; njets = 0; njetspt20 = 0;
+            for(std::vector<int>::size_type i = 0; i != (*bjet_).size(); i++) {
+                 nbtag+=(*bjet_)[i];
+                 if((*jetpt_)[i] > 30) njets+=1;
+                 njetspt20+=1;
+                 if((*bjet_)[i] && nbtag == 1){
+                    bpt_1 = (*jetpt_)[i];      
+                    beta_1 = (*jeteta_)[i];      
+                    bphi_1 = (*jetphi_)[i];      
+                    brawf_1 = (*jecfactor_)[i];      
+                    bmva_1 = (*pujetid_)[i];
+                    bpfid_1 = (*jetlooseID_)[i];
+                    bpuid_1 = (*pujetetaid_)[i];
+                    bcsv_1 = (*jetcsvtag_)[i];
+                 }
+                 if((*bjet_)[i] && nbtag == 2){
+                    bpt_2 = (*jetpt_)[i];      
+                    beta_2 = (*jeteta_)[i];      
+                    bphi_2 = (*jetphi_)[i];      
+                    brawf_2 = (*jecfactor_)[i];      
+                    bmva_2 = (*pujetid_)[i];
+                    bpfid_2 = (*jetlooseID_)[i];
+                    bpuid_2 = (*pujetetaid_)[i];
+                    bcsv_2 = (*jetcsvtag_)[i];
+                 }
+            }
+            /* druga metoda
+            for(float &j : *bjet_){
+                nbtag+=j;
+            }
+            */
             if(cut){
                 unsigned short one = 1;
                 for(int i = 0; i < paircount; i++){
@@ -334,8 +399,8 @@ class synchronizer : public analyzer{
                         id_m_tightnovtx_2 = (*isTightnovtxMuon_)[i];
                         id_m_highpt_2 = (*isHighPtMuon_)[i];
 
-                        pth = (*pth_)[i];
-                        m_sv = (*m_sv_)[i];
+          //              pth = (*pth_)[i];
+                        m_sv = (*svfit_)[i];
 
                         mvacov00 = (*mvacov00_)[i];
                         mvacov01 = (*mvacov01_)[i];
@@ -348,12 +413,31 @@ class synchronizer : public analyzer{
                 }
             }
             else{
+
                         pt_1 = (*taupt_)[0];
                         phi_1 = (*tauphi_)[0];
                         eta_1 = (*taueta_)[0];
                         m_1 = (*taum_)[0];
                         q_1 = (*tauq_)[0];
                         mt_1 = (*taumt_)[0];
+
+                        againstElectronLooseMVA5_1 = (*againstElectronLooseMVA5_)[0];
+                        againstElectronMediumMVA5_1 = (*againstElectronMediumMVA5_)[0];
+                        againstElectronTightMVA5_1 = (*againstElectronTightMVA5_)[0];
+                        againstElectronVLooseMVA5_1 = (*againstElectronVLooseMVA5_)[0];
+                        againstElectronVTightMVA5_1 = (*againstElectronVTightMVA5_)[0];
+                        againstMuonLoose3_1 = (*againstMuonLoose3_)[0];
+                        againstMuonTight3_1 = (*againstMuonTight3_)[0];
+                        byCombinedIsolationDeltaBetaCorrRaw3Hits_1 = (*byCombinedIsolationDeltaBetaCorrRaw3Hits_)[0];
+                        byIsolationMVA3newDMwoLTraw_1 = (*byIsolationMVA3newDMwoLTraw_)[0];
+                        byIsolationMVA3oldDMwoLTraw_1 = (*byIsolationMVA3oldDMwoLTraw_)[0];
+                        byIsolationMVA3newDMwLTraw_1 = (*byIsolationMVA3newDMwLTraw_)[0];
+                        byIsolationMVA3oldDMwLTraw_1 = (*byIsolationMVA3oldDMwLTraw_)[0];
+                        chargedIsoPtSum_1 = (*chargedIsoPtSum_)[0];
+                        decayModeFinding_1 = (*decayModeFinding_)[0];
+                        decayModeFindingNewDMs_1 = (*decayModeFindingNewDMs_)[0];
+                        neutralIsoPtSum_1 = (*neutralIsoPtSum_)[0];
+                        puCorrPtSum_1 = (*puCorrPtSum_)[0];
 
                         pt_2 = (*mupt_)[0];
                         phi_2 = (*muphi_)[0];
@@ -363,13 +447,32 @@ class synchronizer : public analyzer{
                         d0_2 = (*mud0_)[0];
                         dZ_2 = (*mudz_)[0];
                         mt_2 = (*mumt_)[0];
+                        iso_2 = (*muiso_)[0];
+                        id_m_loose_2 = (*isLooseMuon_)[0];
+                        id_m_medium_2 = (*isMediumMuon_)[0];
+                        id_m_tight_2 = (*isTightMuon_)[0];
+                        id_m_tightnovtx_2 = (*isTightnovtxMuon_)[0];
+                        id_m_highpt_2 = (*isHighPtMuon_)[0];
+
+                 //       pth = (*pth_)[0];
+                        m_sv = (*svfit_)[0];
+
+                        mvacov00 = (*mvacov00_)[0];
+                        mvacov01 = (*mvacov01_)[0];
+                        mvacov10 = (*mvacov10_)[0];
+                        mvacov11 = (*mvacov11_)[0];
+
+
+
             }
             
             synchtree->Fill();
         }
         synchtree->Write();
         delete synchtree;
+
         } else {std::cout << "synchronizer ERROR: tree exist;";}
+
         delete f;
 
     }
